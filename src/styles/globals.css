@@ -1,42 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================= */
+/* 🌙 THEME-BASED STYLES */
+/* ============================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-bg: #ffffff;
+  --primary-text: #111827;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme="dark"] {
+  --primary-bg: #1a202c;
+  --primary-text: #e2e8f0;
 }
 
-html,
+/* Apply theme variables */
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  @apply bg-[var(--primary-bg)] text-[var(--primary-text)] transition-colors duration-300;
+}
+
+/* ============================= */
+/* 🌍 GLOBAL STYLES */
+/* ============================= */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply font-sans antialiased leading-relaxed;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
+/* ============================= */
+/* 🔗 LINK STYLING */
+/* ============================= */
 a {
-  color: inherit;
-  text-decoration: none;
+  @apply text-blue-600 hover:text-blue-800 transition-colors duration-200;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* ============================= */
+/* 🔘 BUTTON STYLING */
+/* ============================= */
+button {
+  @apply px-4 py-2 font-medium rounded transition-all duration-200;
+}
+
+button.primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+
+button.secondary {
+  @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+}
+
+/* ============================= */
+/* 📜 CUSTOM SCROLLBAR (for modern look) */
+/* ============================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-500 rounded-lg hover:bg-gray-600;
+}
+
+/* ============================= */
+/* ✨ TAILWIND COMPONENTS EXTENSION */
+/* ============================= */
+@layer components {
+  .card {
+    @apply p-4 shadow-md rounded-lg bg-white dark:bg-gray-800;
+  }
+
+  .container-lg {
+    @apply max-w-6xl mx-auto px-4;
   }
 }
