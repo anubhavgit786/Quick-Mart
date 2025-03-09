@@ -3,7 +3,7 @@ import { DEFAULT_LANGUAGE, DEFAULT_CURRENCY } from "@/config/constants";
 import { LanguageCurrencyContextType, LanguageCurrencyProviderProps } from "@/types";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import { RotatingLines } from "react-loader-spinner";
+import styles from "@/styles/Loader.module.css";
 
 // Create context
 const LanguageCurrencyContext = createContext<LanguageCurrencyContextType | undefined>(undefined);
@@ -75,12 +75,7 @@ export const LanguageCurrencyProvider = ({ children }: LanguageCurrencyProviderP
     <LanguageCurrencyContext.Provider value={{ language, currency, exchangeRate, updateLanguage, updateCurrency, isDirectionRTL }}>
       {loading ? (
         <div className="flex justify-center items-center h-screen">
-          <RotatingLines
-            visible={true}
-            strokeWidth="5"
-            animationDuration="0.75"
-            ariaLabel="rotating-lines-loading"
-          />
+          <div className={styles.loader}></div>
         </div>
       ) : (
         children
