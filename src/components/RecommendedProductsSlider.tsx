@@ -19,7 +19,7 @@ interface RecommendedProductsSliderProps {
 }
 
 const RecommendedProductsSlider: React.FC<RecommendedProductsSliderProps> = ({ recommendedProducts, onSelectProduct }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
   const { currency, exchangeRate, isDirectionRTL } = useLanguageCurrency();
   const { theme } = useTheme(); // Get the current theme
 

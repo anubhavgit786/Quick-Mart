@@ -12,7 +12,7 @@ interface HomeProps {
 }
 
 export default function Home({ products }: HomeProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
 
   return (
     <>

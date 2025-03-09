@@ -15,7 +15,7 @@ interface ProductPageProps {
 }
 
 const ProductPage = ({ products }: ProductPageProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
   const { theme } = useTheme(); // Get current theme
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 

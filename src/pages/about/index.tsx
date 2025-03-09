@@ -10,7 +10,7 @@ import Head from "next/head";
 import { motion } from "framer-motion"; // Import Framer Motion
 
 const AboutUs = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation("common");
     const { language } = useLanguageCurrency();
     const { theme } = useTheme(); // Get current theme
     const [currentDateTime, setCurrentDateTime] = useState<string>(formatDateAndTime(language));

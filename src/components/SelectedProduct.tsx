@@ -13,7 +13,7 @@ interface SelectedProductProps {
 }
 
 const SelectedProduct: React.FC<SelectedProductProps> = ({ selectedProduct, onSelectProduct }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
   const { currency, exchangeRate } = useLanguageCurrency();
   const { theme } = useTheme();
 

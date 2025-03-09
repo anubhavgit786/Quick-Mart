@@ -9,7 +9,7 @@ import styles from "@/styles/Loader.module.css";
 const LanguageCurrencyContext = createContext<LanguageCurrencyContextType | undefined>(undefined);
 
 export const LanguageCurrencyProvider = ({ children }: LanguageCurrencyProviderProps) => {
-  const { i18n } = useTranslation();
+  const { i18n } = useTranslation("common");
   const router = useRouter();
   
   // State initialization without accessing localStorage (SSR-safe)

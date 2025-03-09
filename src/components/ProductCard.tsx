@@ -13,7 +13,7 @@ type ProductCardProps = {
 
 const ProductCard = ({ product, onSelectProduct }: ProductCardProps) => {
   const category = findCategory(product.category) || "unknown";
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
   const { currency, exchangeRate } = useLanguageCurrency();
 
   return (
