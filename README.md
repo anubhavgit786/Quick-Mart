@@ -1,5 +1,3 @@
-Sure! Below is a **`README.md`** file for your **Next.js Multi-Language Currency App** with deployment on **Netlify**.  
-
 ---
 
 ## **🌍 Next.js Multi-Language & Currency App**  
@@ -73,63 +71,6 @@ Open **http://localhost:3000** in your browser.
 
 ---
 
-## 🌍 **Fix for Missing Translations on Netlify**  
-
-If translations show only **keys** instead of values after deployment, try the following:  
-
-✅ **1. Ensure `public/locales` is included in Git**  
-✅ **2. Add `getServerSideProps` in pages using translations**  
-```tsx
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
-export async function getServerSideProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["common"])),
-    },
-  };
-}
-```
-✅ **3. Update `next.config.js`**  
-```js
-module.exports = {
-  i18n: {
-    locales: ["en", "es", "fr", "de", "zh", "ja", "ar", "ru", "pt", "hi", "ko", "it"],
-    defaultLocale: "en",
-    localeDetection: false,
-  },
-};
-```
-✅ **4. Redeploy to Netlify**  
-
----
-
-## 📜 **Folder Structure**  
-
-```
-📦 Quick-Mart
-├── 📂 public
-│   ├── 📂 locales
-│   │   ├── 📂 en
-│   │   │   ├── common.json
-│   │   ├── 📂 fr
-│   │   │   ├── common.json
-│   ├── favicon.ico
-│
-├── 📂 src
-│   ├── 📂 components
-│   │   ├── RecommendedProductsSlider.tsx
-│   ├── 📂 context
-│   │   ├── LanguageCurrencyContext.tsx
-│   ├── 📂 pages
-│   │   ├── _app.tsx
-│   │   ├── index.tsx
-│
-├── next.config.js
-├── netlify.toml
-├── package.json
-└── README.md
-```
 
 ---
 
@@ -140,19 +81,6 @@ module.exports = {
 npm install --save-dev @types/react-slick
 ```
 
-### **2️⃣ `react-loader-spinner` Type Error**
-- Use correct props:
-```tsx
-import { RotatingLines } from "react-loader-spinner";
-
-<RotatingLines
-  visible={true}
-  strokeColor="grey"
-  strokeWidth="5"
-  animationDuration="0.75"
-  ariaLabel="loading"
-/>
-```
 
 ---
 
@@ -169,5 +97,3 @@ import { RotatingLines } from "react-loader-spinner";
 This project is **open-source** under the **MIT License**.  
 
 ---
-
-Let me know if you need any modifications! 🚀
